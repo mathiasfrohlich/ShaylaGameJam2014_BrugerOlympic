@@ -10,6 +10,7 @@ public class click_test : MonoBehaviour {
 	int totalClicks; 
 	bool lost = false;
 	int score = 0;
+	int clicksLeft;
 	// make order number
 	// TODO max clicks per burger, set clicks random maybe
 	// reset counter if clicks exceed max -> you have rushed and dropped the burger again
@@ -45,6 +46,7 @@ public class click_test : MonoBehaviour {
 
 	void Update (){
 
+		clicksLeft = totalClicks - counter;
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit2D hit = Physics2D.GetRayIntersection(ray,Mathf.Infinity);
 
@@ -85,7 +87,7 @@ public class click_test : MonoBehaviour {
 	void OnGUI(){
 		GUI.Box(new Rect(10,10,200,30), "score: "+score);
 		GUI.Box(new Rect(10,45,200,30), "Clicks to collect burger: "+totalClicks);
-		GUI.Box(new Rect(10,80,200,30), "Missing parts of burger: "+totalClicks-counter);
+		GUI.Box(new Rect(10,80,200,30), "Missing parts of burger: "+clicksLeft);
 
 		if(lost){
 			GUI.Box(new Rect(10,125,200,30), "you've picked to much up - burger is dirty");
