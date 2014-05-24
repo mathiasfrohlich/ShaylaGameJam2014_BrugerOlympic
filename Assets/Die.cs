@@ -7,9 +7,13 @@ public class Die : MonoBehaviour {
 
 	public int burgers = 0;
 
+	public AudioClip end;
+
+
+	public AudioSource test;
 	// Use this for initialization
 	void Start () {
-	
+		test = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -26,7 +30,7 @@ public class Die : MonoBehaviour {
 			Time.timeScale = 0.0f;
 			dead = true;
 
-			;
+			test.Play();
 		}
 
 
@@ -43,12 +47,13 @@ public class Die : MonoBehaviour {
 				Time.timeScale = 1.0f;
 				GameObject.FindGameObjectWithTag("Spawner").GetComponent<Spawner>().speed = 0.5f;
 				burgers = 0;
+				test.Stop();
 			}
 
 			
 		}
 		
-		GUI.Box(new Rect(10,10,200,30), "Burgers : "+burgers);
+		GUI.Box(new Rect(Screen.width - 200,10,200,30), "Burgers Picked up : "+burgers);
 
 
 
