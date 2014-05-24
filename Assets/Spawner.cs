@@ -19,6 +19,7 @@ public class Spawner : MonoBehaviour {
 			randomRange = Random.Range(0, burger.Length-1);
 			spawnRdy = false;
 			GameObject tmpBurg = GameObject.Instantiate(burger[randomRange], spawnPoint.transform.position, Quaternion.identity) as GameObject;
+			tmpBurg.rigidbody2D.AddForce(new Vector2(-0.5f,-0.5f)*500);
 			//int randomRange = Random.Range(0, 360);
 			//tmpBurg.transform.rotation.z = randomRange;
 			StartCoroutine("ReadySpawn");

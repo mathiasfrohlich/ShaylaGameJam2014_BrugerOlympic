@@ -42,7 +42,7 @@ public class Die : MonoBehaviour {
 				dead = false;
 				Time.timeScale = 1.0f;
 				GameObject.FindGameObjectWithTag("Spawner").GetComponent<Spawner>().speed = 0.5f;
-
+				burgers = 0;
 			}
 
 			
