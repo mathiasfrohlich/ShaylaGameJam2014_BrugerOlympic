@@ -41,7 +41,7 @@ public class Die : MonoBehaviour {
 					Destroy(g);
 				dead = false;
 				Time.timeScale = 1.0f;
-				ameObject.FindGameObjectWithTag("Spawner").GetComponent<Spawner>().speed = 1;
+				GameObject.FindGameObjectWithTag("Spawner").GetComponent<Spawner>().speed = 1;
 
 			}
 
